@@ -1,0 +1,24 @@
+1) User can create blog in draft
+
+url :http://localhost:9000/api/v1/create-blog?{user_id}/{blog_title}/{blog_content}
+
+response : blog added
+
+
+2) User can published blog
+
+url :http://localhost:9000/api/v1/publish-blog?{blog_id}
+
+response : blog published
+
+3) User can delete blog
+
+url :http://localhost:9000/api/v1/delete-blog?{blog_id}
+
+response: blog deleted
+
+4) User can update blog
+
+url :http://localhost:9000/api/v1/update-blog?{blog_id}/{blog_title}/{blog_content}
+
+response: blog updated.
