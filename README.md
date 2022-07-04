@@ -80,6 +80,6 @@ Method Type: GET
 
 8. DISPLAY USER INFORMATION
 ```bash
-API: /api/v1/users/{userId}
+API: /api/v1/user/{userId}
 Method Type: GET
 ```
