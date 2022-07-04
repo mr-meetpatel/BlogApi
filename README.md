@@ -60,3 +60,26 @@ API: /api/v1/user/{userId}/blog/{blogId}
 Method Type: DELETE
 ```
 
+5. DISPLAY BLOG
+```bash
+API: /api/v1/blogs/
+Method Type: GET
+```
+
+6. DISPLAY USER BLOG
+```bash
+API: /api/v1/user/{userId}/blogs
+Method Type: GET
+```
+
+7. DISPLAY ALL USER
+```bash
+API: /api/v1/users
+Method Type: GET
+```
+
+8. DISPLAY USER INFORMATION
+```bash
+API: /api/v1/user/{userId}
+Method Type: GET
+```
