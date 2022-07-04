@@ -11,6 +11,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Object'
+  /api/v1/users:
+    get:
+      operationId: fetchAllUser
+      parameters: []
+      responses:
+        default:
+          description: fetchAllUser default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+    post:
+      operationId: createUser
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userName:
+                  type: string
+                  nullable: false
+        required: true
+      responses:
+        default:
+          description: createUser default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
   /api/v1/user/{userId}/blog/{blogId}:
     put:
       operationId: updateUserBlog
@@ -99,23 +130,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Object'
-  /api/v1/users:
-    post:
-      operationId: createUser
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                userName:
-                  type: string
-                  nullable: false
+  /api/v1/blogs/{userId}:
+    get:
+      operationId: fetchUserBlog
+      parameters:
+      - name: userId
+        in: path
         required: true
+        schema:
+          type: integer
+          format: int64
       responses:
         default:
-          description: createUser default response
+          description: fetchUserBlog default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /api/v1/user/{userId}:
+    get:
+      operationId: fetchUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: fetchUser default response
           content:
             application/json:
               schema:

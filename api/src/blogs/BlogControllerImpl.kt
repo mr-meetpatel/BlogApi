@@ -12,6 +12,9 @@ class BlogControllerImpl(
 ) : BlogController {
     override fun getAll(): Response<Any> {
         val response = blogService.getAll()
+        if(response.isEmpty()){
+            return Response(ResponseType.NOT_FOUND, body = "{\"Error\":\"Blog Not Found\"}")
+        }
         return Response(ResponseType.SUCCESS, body = response)
     }
     override fun createUser(user_name: String): Response<Any> {
@@ -48,5 +51,32 @@ class BlogControllerImpl(
             return Response(ResponseType.NOT_FOUND,body="{\"Error\":\"No Data Found\"}")
         }
 
+    }
+
+    override fun fetchUserBlog(user_id: Long): Response<Any> {
+        val response=blogService.fetchUserBlog(user_id)
+        if(response.isEmpty()){
+            return Response(ResponseType.NOT_FOUND,body="{\"Error\":\"Blog Not Found\"}")
+        }else{
+            return Response(ResponseType.SUCCESS,body=response)
+        }
+    }
+    override fun getAllUsers(): Response<Any> {
+        val response=blogService.getAllUsers()
+        if(response.isEmpty()){
+            return Response(ResponseType.NOT_FOUND,body="{\"Error\":\"User not found\"}")
+        }else{
+            return Response(ResponseType.SUCCESS,body=response)
+        }
+
+    }
+
+    override fun getUser(userId: Long): Response<Any> {
+        val response=blogService.getUser(userId)
+        if(response.isEmpty()){
+            return Response(ResponseType.SUCCESS,body="{\"Error\":\"User Not Found\"}")
+        }else{
+            return Response(ResponseType.NOT_FOUND,body=response)
+        }
     }
 }

@@ -5,6 +5,7 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
 import io.micronaut.http.context.ServerRequestContext
+import io.micronaut.http.context.event.HttpRequestReceivedEvent
 import javax.inject.Inject
 import javax.validation.constraints.Size
 import javax.ws.rs.QueryParam
@@ -64,6 +65,39 @@ class deleteUserBlogApi @Inject constructor(
     fun deleteUserBlog(userId: Long, blogId: Long): HttpResponse<Any> {
         val blog = blogController.deleteUserBlog(userId,blogId)
         return blog.getHttpResponse()
+    }
+}
+
+@Controller("/api/v1/blogs/{userId}")
+class fetchUserBlogApi @Inject constructor(
+    private val blogController: BlogController
+){
+    @Get("/")
+    fun fetchUserBlog(userId: Long):HttpResponse<Any>{
+        val blog =blogController.fetchUserBlog(userId)
+        return blog.getHttpResponse()
+    }
+}
+
+@Controller("/api/v1/users")
+class fetchAllUserApi @Inject constructor(
+    private val blogController: BlogController
+){
+    @Get("/")
+    fun fetchAllUser():HttpResponse<Any>{
+        val user =blogController.getAllUsers()
+        return user.getHttpResponse()
+    }
+}
+
+@Controller("/api/v1/user/{userId}")
+class fetchUserApi @Inject constructor(
+    private val blogController: BlogController
+){
+    @Get("/")
+    fun fetchUser(userId: Long):HttpResponse<Any>{
+        val user =blogController.getUser(userId)
+        return user.getHttpResponse()
     }
 }
 

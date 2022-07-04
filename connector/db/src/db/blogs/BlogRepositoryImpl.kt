@@ -147,4 +147,54 @@ class BlogRepositoryImpl(
         }
 
     }
+
+    override fun fetchUserBlog(userId: Long): List<Blog> {
+        val fetchBlog=dataSource.connection.prepareStatement("SELECT * FROM blogs WHERE user_id=${userId}")
+        val result=fetchBlog.executeQuery()
+        val blogs= mutableListOf<Blog>()
+        while(result.next()){
+            val id = result.getInt("id").toLong()
+            val name = result.getString("title") as String
+            val content = result.getString("content") as String
+            val createdAt=result.getTimestamp("created_at") as Timestamp
+            val updatedAt=result.getTimestamp("updated_at") as Timestamp
+            val userId=result.getLong("user_id")
+            val isPublish=result.getBoolean("is_publish")
+            blogs.add(Blog(id, name, content,createdAt,updatedAt,userId,isPublish))
+
+        }
+        return blogs
+    }
+    override fun getUser(userId: Long): List<User> {
+        val fetchUser=dataSource.connection.prepareStatement("SELECT * FROM users WHERE id=${userId}")
+        val result=fetchUser.executeQuery()
+        val user= mutableListOf<User>()
+        while(result.next()){
+            val id = result.getInt("id").toLong()
+            val name = result.getString("name") as String
+
+            val createdAt=result.getTimestamp("created_at") as Timestamp
+            val updatedAt=result.getTimestamp("updated_at") as Timestamp
+
+            user.add(User(id,name,createdAt,updatedAt))
+
+        }
+        return user
+    }
+
+    override fun getAllUsers(): List<User> {
+        val fetchUser=dataSource.connection.prepareStatement("SELECT * FROM users")
+        val result=fetchUser.executeQuery()
+        val user= mutableListOf<User>()
+        while(result.next()){
+            val id = result.getInt("id").toLong()
+            val name = result.getString("name") as String
+            val createdAt=result.getTimestamp("created_at") as Timestamp
+            val updatedAt=result.getTimestamp("updated_at") as Timestamp
+
+            user.add(User(id,name,createdAt,updatedAt))
+
+        }
+        return user
+    }
 }

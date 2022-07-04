@@ -10,4 +10,7 @@ interface BlogRepository {
     fun createUserBlog(userId:Long,title:String,content:String):List<Blog>
     fun updateUserBlog(userId: Long, blogId: Long, title: String, content: String): List<Blog>
     fun deleteUserBlog(userId: Long,blog: Long):List<Blog>
+    fun fetchUserBlog(userId:Long):List<Blog>
+    fun getAllUsers():List<User>
+    fun getUser(userId: Long):List<User>
 }
