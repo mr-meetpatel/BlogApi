@@ -1,14 +1,12 @@
 package blogs
 
-import io.micronaut.http.HttpRequest
+
 import io.micronaut.http.HttpResponse
-import io.micronaut.http.MediaType
+
 import io.micronaut.http.annotation.*
-import io.micronaut.http.context.ServerRequestContext
-import io.micronaut.http.context.event.HttpRequestReceivedEvent
+
 import javax.inject.Inject
-import javax.validation.constraints.Size
-import javax.ws.rs.QueryParam
+
 
 
 @Controller("/api/v1/blogs")
@@ -68,7 +66,7 @@ class deleteUserBlogApi @Inject constructor(
     }
 }
 
-@Controller("/api/v1/blogs/{userId}")
+@Controller("/api/v1/user/{userId}/blogs")
 class fetchUserBlogApi @Inject constructor(
     private val blogController: BlogController
 ){

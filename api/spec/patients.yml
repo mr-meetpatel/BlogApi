@@ -130,7 +130,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Object'
-  /api/v1/blogs/{userId}:
+  /api/v1/user/{userId}/blogs:
     get:
       operationId: fetchUserBlog
       parameters:
