@@ -1,10 +1,6 @@
 package blogs
-
-
 import io.micronaut.http.HttpResponse
-
 import io.micronaut.http.annotation.*
-
 import javax.inject.Inject
 
 
