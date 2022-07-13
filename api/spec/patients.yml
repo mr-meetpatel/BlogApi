@@ -1,16 +1,5 @@
 openapi: 3.0.1
 paths:
-  /api/v1/blogs:
-    get:
-      operationId: getAll
-      parameters: []
-      responses:
-        default:
-          description: getAll default response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Object'
   /api/v1/users:
     get:
       operationId: fetchAllUser
@@ -38,6 +27,34 @@ paths:
       responses:
         default:
           description: createUser default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /api/v1/user/{userId}:
+    get:
+      operationId: fetchUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: fetchUser default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+  /api/v1/blogs:
+    get:
+      operationId: getAll
+      parameters: []
+      responses:
+        default:
+          description: getAll default response
           content:
             application/json:
               schema:
@@ -143,23 +160,6 @@ paths:
       responses:
         default:
           description: fetchUserBlog default response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Object'
-  /api/v1/user/{userId}:
-    get:
-      operationId: fetchUser
-      parameters:
-      - name: userId
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        default:
-          description: fetchUser default response
           content:
             application/json:
               schema:

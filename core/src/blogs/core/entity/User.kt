@@ -1,4 +1,4 @@
-package blogs.core.models
+package blogs.core.entity
 
 import java.sql.Timestamp
 

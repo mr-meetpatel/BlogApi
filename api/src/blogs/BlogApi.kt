@@ -2,7 +2,7 @@ package blogs
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.*
 import javax.inject.Inject
-
+import javax.sql.DataSource
 
 
 @Controller("/api/v1/blogs")
@@ -16,17 +16,6 @@ class BlogApi @Inject constructor(
     }
 }
 
-@Controller("/api/v1/users")
-class CreateUserApi @Inject constructor(
-    private val blogController: BlogController
-){
-    @Post("/")
-    //{"userName":"name"}
-    fun createUser(userName:String): HttpResponse<Any> {
-        val user = blogController.createUser(userName)
-        return user.getHttpResponse()
-    }
-}
 
 @Controller("/api/v1/user/{userId}/blog")
 class createUserBlogApi @Inject constructor(
@@ -73,27 +62,6 @@ class fetchUserBlogApi @Inject constructor(
     }
 }
 
-@Controller("/api/v1/users")
-class fetchAllUserApi @Inject constructor(
-    private val blogController: BlogController
-){
-    @Get("/")
-    fun fetchAllUser():HttpResponse<Any>{
-        val user =blogController.getAllUsers()
-        return user.getHttpResponse()
-    }
-}
-
-@Controller("/api/v1/user/{userId}")
-class fetchUserApi @Inject constructor(
-    private val blogController: BlogController
-){
-    @Get("/")
-    fun fetchUser(userId: Long):HttpResponse<Any>{
-        val user =blogController.getUser(userId)
-        return user.getHttpResponse()
-    }
-}
 
 
 

@@ -32,10 +32,10 @@ sourceSets {
 dependencies {
     devOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     devOnly "io.micronaut:micronaut-http-server-netty"
-
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi:4.3.0")
     implementation project(':api')
     implementation project(':event')
-
+    implementation("io.swagger.core.v3:swagger-annotations")
     implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     implementation 'io.micronaut:micronaut-security-jwt'
 

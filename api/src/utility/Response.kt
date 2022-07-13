@@ -20,6 +20,8 @@ data class Response<T>(
             ResponseType.BAD_REQUEST -> HttpResponse.badRequest(message ?: body)
             else -> HttpResponse.serverError(message ?: "Something went wrong.")
         }
+
+
 }
 
 enum class ResponseType {

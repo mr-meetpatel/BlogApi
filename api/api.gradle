@@ -19,7 +19,6 @@ dependencies {
     implementation("io.swagger.core.v3:swagger-annotations")
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     runtimeOnly "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
-
     testImplementation 'org.testcontainers:postgresql:1.15.1'
     testImplementation "org.postgresql:postgresql:$postgresVersion"
     testImplementation 'postgresql:postgresql:9.1-901-1.jdbc4'
