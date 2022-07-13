@@ -9,15 +9,15 @@ import utility.ResponseType
 class UserApiTest(
     private val userControllerImpl: UserControllerImpl
 ):BehaviorSpec( {
-//    given("Creating User") {
-//        `when`("the user API in call with /api/v1/users") {
-//
-//            val result = userControllerImpl.createUser("Shivam")
-//            then("it should return status success") {
-//                result.status shouldBe ResponseType.SUCCESS
-//            }
-//        }
-//    }
+    given("Creating User") {
+        `when`("the user API in call with /api/v1/users") {
+
+            val result = userControllerImpl.createUser("Shivam")
+            then("it should return status success") {
+                result.status shouldBe ResponseType.SUCCESS
+            }
+        }
+    }
     given("fetching all users") {
         `when`("the blog API in call with /api/v1/user/{userId}/blog") {
 

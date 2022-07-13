@@ -57,15 +57,15 @@ class BlogApiTest(
             }
         }
     }
-//    given("deleting blog with correct data") {
-//        `when`("the blog API in call with /api/v1/user/{userId}/blog/{blogId}") {
-//
-//            val result = blogControllerImpl.deleteUserBlog(1,19)
-//            then("it should return status success") {
-//                result.status shouldBe ResponseType.SUCCESS
-//            }
-//        }
-//    }
+    given("deleting blog with correct data") {
+        `when`("the blog API in call with /api/v1/user/{userId}/blog/{blogId}") {
+
+            val result = blogControllerImpl.deleteUserBlog(1,19)
+            then("it should return status success") {
+                result.status shouldBe ResponseType.SUCCESS
+            }
+        }
+    }
 
     given("deleting blog with incorrect data") {
         `when`("the blog API in call with /api/v1/user/{userId}/blog/{blogId}") {
